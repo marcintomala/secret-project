@@ -1,10 +1,21 @@
+'use client';
+
 import React from "react";
 import Image from "next/image";
+import { useAuth } from "./auth-context";
 
 export function Home() {
+    const { logout } = useAuth();
+
     return (
         <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
             <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+                <button
+                    onClick={logout}
+                    className="self-end mb-4 px-4 py-2 bg-red-500 text-white rounded"
+                >
+                    Logout
+                </button>
                 <Image
                     className="dark:invert"
                     src="/next.svg"
